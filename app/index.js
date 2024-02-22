@@ -1,6 +1,15 @@
-import { StyleSheet,View,Button, Text ,TextInput} from 'react-native';
+import { StyleSheet,
+    View,
+    Button,
+    Text ,
+    TextInput,
+    TouchableOpacity,
+     Alert} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as React from "react"
+import { Redirect } from 'expo-router';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 
 
@@ -15,13 +24,14 @@ const Home = () => {
             <TextInput placeholder='Digita tu usuario'
             style={styles.textInput}></TextInput>
             <TextInput 
-            placeholder='Digita tu Contraseña'
+            placeholder='Digita tu ggContraseña'
             style={styles.textInput}></TextInput>
-            
+                    
             <Button
-                style={styles.button}
+                
                 title="Press me"
                 onPress={() => Alert.alert('Simple Button pressed')}
+                style={styles.buttonL}
             />
             <StatusBar style='auto'></StatusBar>
         </View>
@@ -29,6 +39,15 @@ const Home = () => {
     
 }
 
+function SettingsScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+  
+  const Tab = createBottomTabNavigator();
 
 
 const styles =StyleSheet.create({
@@ -59,11 +78,13 @@ const styles =StyleSheet.create({
         marginTop:15, 
         width:'80%'
     },
-    button:{
+    buttonL:{
         borderRadius:10,
         padding:5,
-        marginTop:15
+        marginTop:15,
+        backgroundColor:Redirect,
     }
 });
 
-export default Home;
+export default Home
+  
